@@ -1,0 +1,47 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "next-ula-tilemap-scroll.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "layer_3.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 5.5,
+            "scaleInEditor": 8
+        },
+        "next-ula-tilemap-scroll.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 541,
+                "y": 117.33333333333334
+            }
+        }
+    },
+    "last.imagePath": "C:/Users/ericj/Projects/specdev/projects/next-ula-tilemap-scroll/tilemap_src/01_tiled",
+    "map.height": 32,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 8,
+    "map.tileWidth": 8,
+    "map.width": 80,
+    "openFiles": [
+        "layer_3.tsx",
+        "next-ula-tilemap-scroll.tmx"
+    ],
+    "project": "next-ula-tilemap-scroll.tiled-project",
+    "recentFiles": [
+        "layer_3.tsx",
+        "next-ula-tilemap-scroll.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 8,
+        "width": 8
+    },
+    "tileset.transparentColor": "#00ffff",
+    "tileset.useTransparentColor": true
+}
