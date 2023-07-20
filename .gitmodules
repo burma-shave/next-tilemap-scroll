@@ -1,0 +1,3 @@
+[submodule "tilemap_src/01_tiled/zxnext-tiled-extension"]
+	path = tilemap_src/01_tiled/zxnext-tiled-extension
+	url = https://github.com/burma-shave/zxnext-tiled-extension.git

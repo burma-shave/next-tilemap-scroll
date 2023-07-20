@@ -17,13 +17,16 @@
             "scale": 1.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 541,
-                "y": 117.33333333333334
+                "x": 539.6666666666666,
+                "y": 88
             }
         }
     },
+    "last.exportedFilePath": "C:/Users/ericj/Projects/specdev/projects/next-ula-tilemap-scroll/tilemap_src/01_tiled",
     "last.imagePath": "C:/Users/ericj/Projects/specdev/projects/next-ula-tilemap-scroll/tilemap_src/01_tiled",
+    "lastUsedTilesetExportFilter": "Lua files (*.lua)",
     "map.height": 32,
+    "map.lastUsedExportFilter": "Lua files (*.lua)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 8,
     "map.tileWidth": 8,
