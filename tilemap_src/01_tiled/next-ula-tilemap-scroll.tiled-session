@@ -17,16 +17,16 @@
             "scale": 1.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 539.6666666666666,
-                "y": 88
+                "x": 539,
+                "y": 87.33333333333334
             }
         }
     },
-    "last.exportedFilePath": "C:/Users/ericj/Projects/specdev/projects/next-ula-tilemap-scroll/tilemap_src/01_tiled",
+    "last.exportedFilePath": "C:/Users/ericj/Projects/specdev/projects/next-ula-tilemap-scroll",
     "last.imagePath": "C:/Users/ericj/Projects/specdev/projects/next-ula-tilemap-scroll/tilemap_src/01_tiled",
-    "lastUsedTilesetExportFilter": "Lua files (*.lua)",
+    "lastUsedTilesetExportFilter": "ZX Next Layer 3 Tileset (*.bin)",
     "map.height": 32,
-    "map.lastUsedExportFilter": "Lua files (*.lua)",
+    "map.lastUsedExportFilter": "ZX Next Layer 3 Tilemap (*.json)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 8,
     "map.tileWidth": 8,

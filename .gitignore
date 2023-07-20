@@ -6,3 +6,8 @@
 *.nex
 *.sld
 *.sna
+
+*.bin
+*.bin.pal
+
+next-ula-tilemap-scroll.json
