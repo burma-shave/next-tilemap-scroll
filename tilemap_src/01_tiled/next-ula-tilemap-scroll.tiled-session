@@ -8,36 +8,46 @@
         "."
     ],
     "fileStates": {
+        "40x32.tmx": {
+            "scale": 5.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 159.9090909090909,
+                "y": 127.9090909090909
+            }
+        },
         "layer_3.tsx": {
             "dynamicWrapping": true,
             "scaleInDock": 5.5,
             "scaleInEditor": 8
         },
         "next-ula-tilemap-scroll.tmx": {
-            "scale": 1.5,
+            "scale": 4,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 539,
-                "y": 87.33333333333334
+                "x": 163.5,
+                "y": 62.875
             }
         }
     },
-    "last.exportedFilePath": "C:/Users/ericj/Projects/specdev/projects/next-ula-tilemap-scroll",
+    "last.exportedFilePath": "C:/Users/ejutr/Projects/specdev/projects/zx-next-dev-guide/samples/tilemap",
     "last.imagePath": "C:/Users/ericj/Projects/specdev/projects/next-ula-tilemap-scroll/tilemap_src/01_tiled",
     "lastUsedTilesetExportFilter": "ZX Next Layer 3 Tileset (*.bin)",
     "map.height": 32,
-    "map.lastUsedExportFilter": "ZX Next Layer 3 Tilemap (*.json)",
+    "map.lastUsedExportFilter": "ZX Next Layer 3 Tilemap (*.map)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 8,
     "map.tileWidth": 8,
-    "map.width": 80,
+    "map.width": 40,
     "openFiles": [
         "layer_3.tsx",
-        "next-ula-tilemap-scroll.tmx"
+        "next-ula-tilemap-scroll.tmx",
+        "40x32.tmx"
     ],
     "project": "next-ula-tilemap-scroll.tiled-project",
     "recentFiles": [
         "layer_3.tsx",
+        "40x32.tmx",
         "next-ula-tilemap-scroll.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",

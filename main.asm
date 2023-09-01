@@ -14,36 +14,31 @@ NEX:    equ 1   ;  1=Create nex file, 0=create sna file
         DEVICE ZXSPECTRUMNEXT
     ENDIF
 
+
+;===========================================================================
+; Tileset
+;===========================================================================
     ORG 0x4000
     defs 0x6000 - $    ; move after screen area
-screen_top: defb    0   ; WPMEMx
+    ORG $6000
+tilemap:
+    incbin "tiles.map"
+
+    ORG $6600
+tiles:
+    incbin "tiles.spr"
+
+palette:
+    incbin "tiles.pal"
 
 
-;===========================================================================
-; Persistent watchpoint.
-; Change WPMEMx (remove the 'x' from WPMEMx) below to activate.
-; If you do so the program will hit a breakpoint when it tries to
-; write to the first byte of the 3rd line.
-; When program breaks in the fill_memory sub routine please hover over hl
-; to see that it contains 0x5804 or COLOR_SCREEN+64.
-;===========================================================================
+TILES_BASE_BANK5_OFFSET     equ (tiles- $4000) >> 8
+TILEMAP_BASE_BANK5_OFFSET   equ (tilemap - $4000) >> 8
 
-; WPMEMx 0x5840, 1, w
+    ORG $8000
 
-
-;===========================================================================
-; Include modules
-;===========================================================================
-    include "utilities.asm"
-    include "fill.asm"
-    include "clearscreen.asm"
-
-    ; Normally you would assemble the unit tests in a separate target
-    ; in the makefile.
-    ; As this is a very short program and for simplicity the
-    ; unit tests and the main program are assembled in the same binary.
-    include "unit_tests.asm"
-
+    ;include "utilities.asm"
+    include "constants.i.asm"
 
 ;===========================================================================
 ; main routine - the code execution starts here.
@@ -51,75 +46,37 @@ screen_top: defb    0   ; WPMEMx
 ; banks and jumps to the start loop.
 ;===========================================================================
 
-
- defs 0x8000 - $
- ORG $8000
-
 main:
     ; Disable interrupts
-    di
-    ld sp,stack_top
+    ; di
+    NEXTREG TILEMAP_CONTROL_NR_6B, %10100001    ; 40x32, 16-bit entries
+    NEXTREG TILEMAP_DEFAULT_ATTR_NR_6C, %00000000       ; default tile attributes
+    NEXTREG TILEMAP_BASE_ADR_NR_6E, $20
+    NEXTREG TILEMAP_GFX_ADR_NR_6F, $26 ; MSB of offset into
 
-    ; CLS
-    call clear_screen
-    call clear_backg
-
-    ; Init
-    ld hl,fill_colors
-    ld (fill_colors_ptr),hl
-    ld de,COLOR_SCREEN
-
-
-    ; set up tilemap + l/r scroll
-
-    ; Enable interrupts
-    ;im 1
-    ;ei
+;    	NEXTREG PALETTE_CONTROL_NR_43, %00110000		; Auto increment, select first tilemap palette
+;     NEXTREG PALETTE_INDEX_NR_40, 0
+; 	LD HL, palette			; Address of palette data in memory
+; 	LD B, 16			; Copy 16 colours
+; .copyPalette
+; 	LD A, (HL)		; Load RRRGGGBB into A
+; 	INC HL			; Increment to next entry
+; 	NEXTREG PALETTE_VALUE_NR_41, A		; Send entry to Next HW
+; 	DJNZ .copyPalette	; Repeat until B=0
 
 main_loop:
-    ; fill line with color
-    ld hl,(fill_colors_ptr)
-    ld a,(hl)
-    call fill_bckg_line
-
-    ; break
-    push de
-    ld de,PAUSE_TIME
-    call pause
-    pop de
-
-    ; Alternatively wait on vertical interrupt
-    ;halt
-
-    ; next line
-    call inc_fill_colors_ptr
-
     jr main_loop
-
 
 ;===========================================================================
 ; Stack.
 ;===========================================================================
 
 
-; Stack: this area is reserved for the stack
-STACK_SIZE: equ 100    ; in words
-
-
-; Reserve stack space
-    defw 0  ; WPMEM, 2
-stack_bottom:
-    defs    STACK_SIZE*2, 0
-stack_top:
-    ;defw 0
-    defw 0  ; WPMEM, 2
-
-
 
     IF NEX == 0
         SAVESNA "z80-sample-program.sna", main
     ELSE
-        SAVENEX OPEN "z80-sample-program.nex", main, stack_top
+        SAVENEX OPEN "z80-sample-program.nex", main, $ff40
         SAVENEX CORE 3, 1, 5
         SAVENEX CFG 7   ; Border color
         SAVENEX AUTO
